@@ -60,6 +60,7 @@ namespace UnbeatableTicTacToe
             this.btn_a1.Size = new System.Drawing.Size(90, 90);
             this.btn_a1.TabIndex = 1;
             this.btn_a1.UseVisualStyleBackColor = true;
+            this.btn_a1.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_b1
             // 
@@ -69,6 +70,7 @@ namespace UnbeatableTicTacToe
             this.btn_b1.Size = new System.Drawing.Size(90, 90);
             this.btn_b1.TabIndex = 2;
             this.btn_b1.UseVisualStyleBackColor = true;
+            this.btn_b1.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_c1
             // 
@@ -78,6 +80,7 @@ namespace UnbeatableTicTacToe
             this.btn_c1.Size = new System.Drawing.Size(90, 90);
             this.btn_c1.TabIndex = 3;
             this.btn_c1.UseVisualStyleBackColor = true;
+            this.btn_c1.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_c2
             // 
@@ -87,6 +90,7 @@ namespace UnbeatableTicTacToe
             this.btn_c2.Size = new System.Drawing.Size(90, 90);
             this.btn_c2.TabIndex = 6;
             this.btn_c2.UseVisualStyleBackColor = true;
+            this.btn_c2.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_b2
             // 
@@ -96,6 +100,7 @@ namespace UnbeatableTicTacToe
             this.btn_b2.Size = new System.Drawing.Size(90, 90);
             this.btn_b2.TabIndex = 5;
             this.btn_b2.UseVisualStyleBackColor = true;
+            this.btn_b2.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_a2
             // 
@@ -105,6 +110,7 @@ namespace UnbeatableTicTacToe
             this.btn_a2.Size = new System.Drawing.Size(90, 90);
             this.btn_a2.TabIndex = 4;
             this.btn_a2.UseVisualStyleBackColor = true;
+            this.btn_a2.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_c3
             // 
@@ -114,6 +120,7 @@ namespace UnbeatableTicTacToe
             this.btn_c3.Size = new System.Drawing.Size(90, 90);
             this.btn_c3.TabIndex = 9;
             this.btn_c3.UseVisualStyleBackColor = true;
+            this.btn_c3.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_b3
             // 
@@ -123,6 +130,7 @@ namespace UnbeatableTicTacToe
             this.btn_b3.Size = new System.Drawing.Size(90, 90);
             this.btn_b3.TabIndex = 8;
             this.btn_b3.UseVisualStyleBackColor = true;
+            this.btn_b3.Click += new System.EventHandler(this.BtnClick);
             // 
             // btn_a3
             // 
@@ -132,6 +140,7 @@ namespace UnbeatableTicTacToe
             this.btn_a3.Size = new System.Drawing.Size(90, 90);
             this.btn_a3.TabIndex = 7;
             this.btn_a3.UseVisualStyleBackColor = true;
+            this.btn_a3.Click += new System.EventHandler(this.BtnClick);
             // 
             // Form1
             // 
