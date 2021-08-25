@@ -29,6 +29,7 @@ namespace UnbeatableTicTacToe
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbl_turnDisplay = new System.Windows.Forms.Label();
             this.btn_a1 = new System.Windows.Forms.Button();
             this.btn_b1 = new System.Windows.Forms.Button();
@@ -58,7 +59,6 @@ namespace UnbeatableTicTacToe
             this.btn_a1.Name = "btn_a1";
             this.btn_a1.Size = new System.Drawing.Size(90, 90);
             this.btn_a1.TabIndex = 1;
-            this.btn_a1.Text = "X";
             this.btn_a1.UseVisualStyleBackColor = true;
             // 
             // btn_b1
@@ -68,7 +68,6 @@ namespace UnbeatableTicTacToe
             this.btn_b1.Name = "btn_b1";
             this.btn_b1.Size = new System.Drawing.Size(90, 90);
             this.btn_b1.TabIndex = 2;
-            this.btn_b1.Text = "X";
             this.btn_b1.UseVisualStyleBackColor = true;
             // 
             // btn_c1
@@ -78,7 +77,6 @@ namespace UnbeatableTicTacToe
             this.btn_c1.Name = "btn_c1";
             this.btn_c1.Size = new System.Drawing.Size(90, 90);
             this.btn_c1.TabIndex = 3;
-            this.btn_c1.Text = "X";
             this.btn_c1.UseVisualStyleBackColor = true;
             // 
             // btn_c2
@@ -88,7 +86,6 @@ namespace UnbeatableTicTacToe
             this.btn_c2.Name = "btn_c2";
             this.btn_c2.Size = new System.Drawing.Size(90, 90);
             this.btn_c2.TabIndex = 6;
-            this.btn_c2.Text = "X";
             this.btn_c2.UseVisualStyleBackColor = true;
             // 
             // btn_b2
@@ -98,7 +95,6 @@ namespace UnbeatableTicTacToe
             this.btn_b2.Name = "btn_b2";
             this.btn_b2.Size = new System.Drawing.Size(90, 90);
             this.btn_b2.TabIndex = 5;
-            this.btn_b2.Text = "X";
             this.btn_b2.UseVisualStyleBackColor = true;
             // 
             // btn_a2
@@ -108,7 +104,6 @@ namespace UnbeatableTicTacToe
             this.btn_a2.Name = "btn_a2";
             this.btn_a2.Size = new System.Drawing.Size(90, 90);
             this.btn_a2.TabIndex = 4;
-            this.btn_a2.Text = "X";
             this.btn_a2.UseVisualStyleBackColor = true;
             // 
             // btn_c3
@@ -118,7 +113,6 @@ namespace UnbeatableTicTacToe
             this.btn_c3.Name = "btn_c3";
             this.btn_c3.Size = new System.Drawing.Size(90, 90);
             this.btn_c3.TabIndex = 9;
-            this.btn_c3.Text = "X";
             this.btn_c3.UseVisualStyleBackColor = true;
             // 
             // btn_b3
@@ -128,7 +122,6 @@ namespace UnbeatableTicTacToe
             this.btn_b3.Name = "btn_b3";
             this.btn_b3.Size = new System.Drawing.Size(90, 90);
             this.btn_b3.TabIndex = 8;
-            this.btn_b3.Text = "X";
             this.btn_b3.UseVisualStyleBackColor = true;
             // 
             // btn_a3
@@ -138,7 +131,6 @@ namespace UnbeatableTicTacToe
             this.btn_a3.Name = "btn_a3";
             this.btn_a3.Size = new System.Drawing.Size(90, 90);
             this.btn_a3.TabIndex = 7;
-            this.btn_a3.Text = "X";
             this.btn_a3.UseVisualStyleBackColor = true;
             // 
             // Form1
@@ -156,8 +148,9 @@ namespace UnbeatableTicTacToe
             this.Controls.Add(this.btn_b1);
             this.Controls.Add(this.btn_a1);
             this.Controls.Add(this.lbl_turnDisplay);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Unbeatable Tic Tac Toe";
             this.ResumeLayout(false);
 
         }
