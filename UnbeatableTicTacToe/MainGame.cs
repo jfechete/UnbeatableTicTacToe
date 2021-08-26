@@ -17,9 +17,10 @@ namespace UnbeatableTicTacToe
         readonly static Color BUTTON_PRESSED_COLOR = Color.FromArgb(191, 191, 191);
 
         Dictionary<string, Button> buttonMapping;
-        string[,] board = new string[3,3];
-        string playerChar = "X";
-        string computerChar = "O";
+        string[,] _board = new string[3,3];
+        string _playerChar = "X";
+        string _computerChar = "O";
+        bool _playerCanGo = false;
         public MainGame()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace UnbeatableTicTacToe
 
         void NewGame()
         {
+            _playerCanGo = false;
             ResetBoard();
             FirstPrompt firstPrompt = new FirstPrompt(FirstTurn);
             firstPrompt.Show();
@@ -40,9 +42,9 @@ namespace UnbeatableTicTacToe
 
         void ResetBoard()
         {
-            for (int x = 0; x < board.GetLength(0); x++)
+            for (int x = 0; x < _board.GetLength(0); x++)
             {
-                for (int y = 0; y < board.GetLength(1); y++)
+                for (int y = 0; y < _board.GetLength(1); y++)
                 {
                     ResetTile(new int[] { x, y });
                 }
@@ -53,23 +55,27 @@ namespace UnbeatableTicTacToe
         {
             if (first == "c")
             {
-                computerChar = "X";
-                playerChar = "O";
+                _computerChar = "X";
+                _playerChar = "O";
                 ComputerTurn();
             }
             else
             {
-                playerChar = "X";
-                computerChar = "O";
+                _playerChar = "X";
+                _computerChar = "O";
+                _playerCanGo = true;
             }
         }
 
         void BtnClick(object sender, EventArgs e)
         {
+            if (!_playerCanGo) { return; }
+
             string pos = ButtonToPos((Button)sender);
             if (GetTile(pos) == string.Empty)
             {
-                SetTile(pos, playerChar);
+                SetTile(pos, _playerChar);
+                _playerCanGo = false;
 
                 ComputerTurn();
             }
@@ -77,13 +83,14 @@ namespace UnbeatableTicTacToe
 
         void ComputerTurn() //will improve later, just here so I can code game logic
         {
-            for (int x = 0; x < board.GetLength(0); x++)
+            for (int x = 0; x < _board.GetLength(0); x++)
             {
-                for (int y = 0; y < board.GetLength(1); y++)
+                for (int y = 0; y < _board.GetLength(1); y++)
                 {
-                    if (board[x,y] == string.Empty)
+                    if (_board[x,y] == string.Empty)
                     {
-                        SetTile(new int[] { x, y }, computerChar);
+                        SetTile(new int[] { x, y }, _computerChar);
+                        _playerCanGo = true;
                         return;
                     }
                 }
@@ -92,7 +99,7 @@ namespace UnbeatableTicTacToe
 
         string GetTile(int[] coord)
         {
-            return board[coord[0], coord[1]];
+            return _board[coord[0], coord[1]];
         }
 
         string GetTile(string pos)
@@ -102,7 +109,7 @@ namespace UnbeatableTicTacToe
 
         void SetTile(int[] coord, string tileChar)
         {
-            board[coord[0], coord[1]] = tileChar;
+            _board[coord[0], coord[1]] = tileChar;
             Button button = buttonMapping[CoordToPos(coord)];
             button.Text = tileChar;
             button.BackColor = BUTTON_PRESSED_COLOR;
@@ -116,7 +123,7 @@ namespace UnbeatableTicTacToe
 
         void ResetTile(int[] coord)
         {
-            board[coord[0], coord[1]] = string.Empty;
+            _board[coord[0], coord[1]] = string.Empty;
             Button button = buttonMapping[CoordToPos(coord)];
             button.Text = string.Empty;
             button.BackColor = BUTTON_OPEN_COLOR;
