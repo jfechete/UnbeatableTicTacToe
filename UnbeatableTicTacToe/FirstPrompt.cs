@@ -12,9 +12,28 @@ namespace UnbeatableTicTacToe
 {
     public partial class FirstPrompt : Form
     {
-        public FirstPrompt()
+        Action<string> _callback;
+
+        public FirstPrompt(Action<string> callback)
         {
             InitializeComponent();
+            _callback = callback;
+        }
+
+        private void Selected(string player)
+        {
+            _callback(player);
+            Close();
+        }
+
+        private void PlayerFirst(object sender, EventArgs e)
+        {
+            Selected("p");
+        }
+
+        private void ComputerFirst(object sender, EventArgs e)
+        {
+            Selected("c");
         }
     }
 }

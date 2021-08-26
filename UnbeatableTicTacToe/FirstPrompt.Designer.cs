@@ -53,6 +53,7 @@ namespace UnbeatableTicTacToe
             this.btn_player.TabIndex = 2;
             this.btn_player.Text = "You";
             this.btn_player.UseVisualStyleBackColor = true;
+            this.btn_player.Click += new System.EventHandler(this.PlayerFirst);
             // 
             // btn_computer
             // 
@@ -62,6 +63,7 @@ namespace UnbeatableTicTacToe
             this.btn_computer.TabIndex = 3;
             this.btn_computer.Text = "Computer";
             this.btn_computer.UseVisualStyleBackColor = true;
+            this.btn_computer.Click += new System.EventHandler(this.ComputerFirst);
             // 
             // FirstPrompt
             // 

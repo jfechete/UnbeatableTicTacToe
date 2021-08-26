@@ -13,6 +13,7 @@ namespace UnbeatableTicTacToe
 
     public partial class MainGame : Form
     {
+        readonly static Color BUTTON_OPEN_COLOR = Color.FromArgb(240,240,240);
         readonly static Color BUTTON_PRESSED_COLOR = Color.FromArgb(191, 191, 191);
 
         Dictionary<string, Button> buttonMapping;
@@ -21,14 +22,20 @@ namespace UnbeatableTicTacToe
         string computerChar = "O";
         public MainGame()
         {
-
             InitializeComponent();
-            ResetBoard();
             buttonMapping = new Dictionary<string, Button> {
                 { "a1", btn_a1 } , {"b1", btn_b1 }, {"c1", btn_c1 },
                 { "a2", btn_a2 } , {"b2", btn_b2 }, {"c2", btn_c2 },
                 { "a3", btn_a3 } , {"b3", btn_b3 }, {"c3", btn_c3 }
             };
+            NewGame();
+        }
+
+        void NewGame()
+        {
+            ResetBoard();
+            FirstPrompt firstPrompt = new FirstPrompt(FirstTurn);
+            firstPrompt.Show();
         }
 
         void ResetBoard()
@@ -37,8 +44,23 @@ namespace UnbeatableTicTacToe
             {
                 for (int y = 0; y < board.GetLength(1); y++)
                 {
-                    board[x,y] = string.Empty;
+                    ResetTile(new int[] { x, y });
                 }
+            }
+        }
+
+        void FirstTurn(string first)
+        {
+            if (first == "c")
+            {
+                computerChar = "X";
+                playerChar = "O";
+                ComputerTurn();
+            }
+            else
+            {
+                playerChar = "X";
+                computerChar = "O";
             }
         }
 
@@ -90,6 +112,19 @@ namespace UnbeatableTicTacToe
         void SetTile(string pos, string tileChar)
         {
             SetTile(PosToCoord(pos), tileChar);
+        }
+
+        void ResetTile(int[] coord)
+        {
+            board[coord[0], coord[1]] = string.Empty;
+            Button button = buttonMapping[CoordToPos(coord)];
+            button.Text = string.Empty;
+            button.BackColor = BUTTON_OPEN_COLOR;
+            button.Enabled = true;
+        }
+        void ResetTile(string pos)
+        {
+            ResetTile(PosToCoord(pos));
         }
 
         int[] PosToCoord(string pos)
