@@ -34,24 +34,57 @@ namespace UnbeatableTicTacToe
             {
                 for (int y = 0; y < board.GetLength(1); y++)
                 {
-                    board[x,y] = "";
+                    board[x,y] = string.Empty;
                 }
             }
         }
 
         void BtnClick(object sender, EventArgs e)
         {
-            ((Button)sender).Text = playerChar;
-            int[] coord = PosToCoord(ButtonToPos((Button)sender));
-            board[coord[0], coord[1]] = playerChar;
+            SetTile(ButtonToPos((Button)sender), playerChar);
+
+            ComputerTurn();
+        }
+
+        void ComputerTurn() //will improve later, just here so I can code game logic
+        {
+            for (int x = 0; x < board.GetLength(0); x++)
+            {
+                for (int y = 0; y < board.GetLength(1); y++)
+                {
+                    if (board[x,y] == string.Empty)
+                    {
+                        Console.Out.WriteLine("Found");
+                        SetTile(new int[] { x, y }, computerChar);
+                        return;
+                    }
+                }
+            }
+        }
+
+        void SetTile(int[] coord, string tileChar)
+        {
+            board[coord[0], coord[1]] = tileChar;
+            buttonMapping[CoordToPos(coord)].Text = tileChar;
+        }
+        void SetTile(string pos, string tileChar)
+        {
+            SetTile(PosToCoord(pos), tileChar);
         }
 
         int[] PosToCoord(string pos)
         {
-            int[] cord = new int[2];
-            cord[0] = pos[0]-97;
-            cord[1] = int.Parse(pos[1].ToString())-1;
-            return cord;
+            int[] coord = new int[2];
+            coord[0] = pos[0] - 97;
+            coord[1] = int.Parse(pos[1].ToString()) - 1;
+            return coord;
+        }
+        string CoordToPos(int[] coord)
+        {
+            string pos = string.Empty;
+            pos += (char)(coord[0] + 97);
+            pos += (coord[1]+1).ToString();
+            return pos;
         }
 
         string ButtonToPos(Button button)
