@@ -10,8 +10,11 @@ using System.Windows.Forms;
 
 namespace UnbeatableTicTacToe
 {
+
     public partial class Form1 : Form
     {
+        readonly static Color BUTTON_PRESSED_COLOR = Color.FromArgb(191, 191, 191);
+
         Dictionary<string, Button> buttonMapping;
         string[,] board = new string[3,3];
         string playerChar = "X";
@@ -41,9 +44,13 @@ namespace UnbeatableTicTacToe
 
         void BtnClick(object sender, EventArgs e)
         {
-            SetTile(ButtonToPos((Button)sender), playerChar);
+            string pos = ButtonToPos((Button)sender);
+            if (GetTile(pos) == string.Empty)
+            {
+                SetTile(pos, playerChar);
 
-            ComputerTurn();
+                ComputerTurn();
+            }
         }
 
         void ComputerTurn() //will improve later, just here so I can code game logic
@@ -54,7 +61,6 @@ namespace UnbeatableTicTacToe
                 {
                     if (board[x,y] == string.Empty)
                     {
-                        Console.Out.WriteLine("Found");
                         SetTile(new int[] { x, y }, computerChar);
                         return;
                     }
@@ -62,10 +68,24 @@ namespace UnbeatableTicTacToe
             }
         }
 
+        string GetTile(int[] coord)
+        {
+            return board[coord[0], coord[1]];
+        }
+
+        string GetTile(string pos)
+        {
+            return GetTile(PosToCoord(pos));
+        }
+
         void SetTile(int[] coord, string tileChar)
         {
             board[coord[0], coord[1]] = tileChar;
-            buttonMapping[CoordToPos(coord)].Text = tileChar;
+            Button button = buttonMapping[CoordToPos(coord)];
+            button.Text = tileChar;
+            button.BackColor = BUTTON_PRESSED_COLOR;
+            button.Enabled = false;
+            
         }
         void SetTile(string pos, string tileChar)
         {
