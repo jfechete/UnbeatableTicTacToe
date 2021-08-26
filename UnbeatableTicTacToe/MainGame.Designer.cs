@@ -1,7 +1,7 @@
 ﻿
 namespace UnbeatableTicTacToe
 {
-    partial class Form1
+    partial class MainGame
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace UnbeatableTicTacToe
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainGame));
             this.lbl_turnDisplay = new System.Windows.Forms.Label();
             this.btn_a1 = new System.Windows.Forms.Button();
             this.btn_b1 = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@ namespace UnbeatableTicTacToe
             this.lbl_turnDisplay.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
             this.lbl_turnDisplay.Location = new System.Drawing.Point(12, 0);
             this.lbl_turnDisplay.Name = "lbl_turnDisplay";
-            this.lbl_turnDisplay.Size = new System.Drawing.Size(250, 20);
+            this.lbl_turnDisplay.Size = new System.Drawing.Size(276, 20);
             this.lbl_turnDisplay.TabIndex = 0;
             this.lbl_turnDisplay.Text = "XXXXX\'s turn";
             this.lbl_turnDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,7 +142,7 @@ namespace UnbeatableTicTacToe
             this.btn_a3.UseVisualStyleBackColor = true;
             this.btn_a3.Click += new System.EventHandler(this.BtnClick);
             // 
-            // Form1
+            // MainGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,7 +158,7 @@ namespace UnbeatableTicTacToe
             this.Controls.Add(this.btn_a1);
             this.Controls.Add(this.lbl_turnDisplay);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainGame";
             this.Text = "Unbeatable Tic Tac Toe";
             this.ResumeLayout(false);
 

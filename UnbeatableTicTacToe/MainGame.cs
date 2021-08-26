@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace UnbeatableTicTacToe
 {
 
-    public partial class Form1 : Form
+    public partial class MainGame : Form
     {
         readonly static Color BUTTON_PRESSED_COLOR = Color.FromArgb(191, 191, 191);
 
@@ -19,7 +19,7 @@ namespace UnbeatableTicTacToe
         string[,] board = new string[3,3];
         string playerChar = "X";
         string computerChar = "O";
-        public Form1()
+        public MainGame()
         {
 
             InitializeComponent();
