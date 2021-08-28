@@ -72,6 +72,8 @@ namespace UnbeatableTicTacToe
             this.Controls.Add(this.btn_again);
             this.Controls.Add(this.lbl_state);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(220, 100);
+            this.MinimumSize = new System.Drawing.Size(220, 100);
             this.Name = "GameEnd";
             this.Text = "Game Over";
             this.ResumeLayout(false);

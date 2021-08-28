@@ -158,6 +158,8 @@ namespace UnbeatableTicTacToe
             this.Controls.Add(this.btn_a1);
             this.Controls.Add(this.lbl_turnDisplay);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(316, 360);
+            this.MinimumSize = new System.Drawing.Size(316, 360);
             this.Name = "MainGame";
             this.Text = "Unbeatable Tic Tac Toe";
             this.ResumeLayout(false);

@@ -77,7 +77,10 @@ namespace UnbeatableTicTacToe
                 SetTile(pos, _playerChar);
                 _playerCanGo = false;
 
-                ComputerTurn();
+                if (!CheckGameEnd())
+                {
+                    ComputerTurn();
+                }
             }
         }
 
@@ -91,10 +94,115 @@ namespace UnbeatableTicTacToe
                     {
                         SetTile(new int[] { x, y }, _computerChar);
                         _playerCanGo = true;
+                        CheckGameEnd();
                         return;
                     }
                 }
             }
+            CheckGameEnd();
+        }
+
+        void GameOver(string charWon)
+        {
+            Console.Out.WriteLine("Game over, char won is:");
+            Console.Out.WriteLine(charWon);
+            _playerCanGo = false;
+        }
+
+        bool CheckGameEnd()
+        {
+            //checking columns
+            for (int x = 0; x < _board.GetLength(0); x++)
+            {
+                if (_board[x,0] != string.Empty)
+                {
+                    bool won = true;
+                    for (int y = 1; y < _board.GetLength(1); y++)
+                    {
+                        if (_board[x,0] != _board[x, y])
+                        {
+                            won = false;
+                            break;
+                        }
+                    }
+                    if (won)
+                    {
+
+                        GameOver(_board[x, 0]);
+                        return true;
+                    }
+                }
+            }
+            //checking rows
+            for (int y = 0; y < _board.GetLength(1); y++)
+            {
+                if (_board[0, y] != string.Empty)
+                {
+                    bool won = true;
+                    for (int x = 1; x < _board.GetLength(0); x++)
+                    {
+                        if (_board[0, y] != _board[x, y])
+                        {
+                            won = false;
+                            break;
+                        }
+                    }
+                    if (won)
+                    {
+
+                        GameOver(_board[0, y]);
+                        return true;
+                    }
+                }
+            }
+            //checking diagonals
+            if (_board[0,0] != string.Empty)
+            {
+                bool won = true;
+                for (int i = 1; i < _board.GetLength(0); i++)
+                {
+                    if (_board[0, 0] != _board[i, i])
+                    {
+                        won = false;
+                        break;
+                    }
+                }
+                if (won)
+                {
+                    GameOver(_board[0, 0]);
+                    return true;
+                }
+            }
+            if (_board[0,_board.GetLength(0)-1] != string.Empty)
+            {
+                bool won = true;
+                for (int i = 1; i < _board.GetLength(0); i++)
+                {
+                    if (_board[0, _board.GetLength(0) - 1] != _board[i, _board.GetLength(0) - 1 - i])
+                    {
+                        won = false;
+                        break;
+                    }
+                }
+                if (won)
+                {
+                    GameOver(_board[0, _board.GetLength(0) - 1]);
+                    return true;
+                }
+            }
+            //checking draw
+            for (int x = 0; x < _board.GetLength(0); x++)
+            {
+                for (int y = 0; y < _board.GetLength(1); y++)
+                {
+                   if (_board[x,y] == string.Empty)
+                    {
+                        return false;
+                    }
+                }
+            }
+            GameOver(string.Empty);
+            return true;
         }
 
         string GetTile(int[] coord)
