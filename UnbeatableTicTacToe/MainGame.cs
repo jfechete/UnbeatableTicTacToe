@@ -25,6 +25,8 @@ namespace UnbeatableTicTacToe
         string _playerChar = "X";
         string _computerChar = "O";
         bool _playerCanGo = false;
+        string debug_string;
+
         public MainGame()
         {
             InitializeComponent();
@@ -46,6 +48,7 @@ namespace UnbeatableTicTacToe
 
         void ResetBoard()
         {
+            debug_string = string.Empty;
             for (int x = 0; x < _board.GetLength(0); x++)
             {
                 for (int y = 0; y < _board.GetLength(1); y++)
@@ -117,6 +120,7 @@ namespace UnbeatableTicTacToe
             else if (charWon == _playerChar)
             {
                 message = PLAYER_WIN_MESSAGE;
+                Console.Out.WriteLine(debug_string);
             }
             else
             {
@@ -234,6 +238,7 @@ namespace UnbeatableTicTacToe
 
         void SetTile(int[] coord, string tileChar)
         {
+            debug_string += (debug_string == string.Empty ? "" : ",") + CoordToPos(coord) + (tileChar == _computerChar ? "c" : "p");
             _board[coord[0], coord[1]] = tileChar;
             Button button = buttonMapping[CoordToPos(coord)];
             button.Text = tileChar;
