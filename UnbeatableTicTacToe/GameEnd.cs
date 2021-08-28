@@ -12,9 +12,23 @@ namespace UnbeatableTicTacToe
 {
     public partial class GameEnd : Form
     {
-        public GameEnd()
+        MainGame _game;
+        public GameEnd(string winMessage, MainGame game)
         {
             InitializeComponent();
+            _game = game;
+            lbl_state.Text = winMessage;
+        }
+
+        private void QuitGame(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void NewGame(object sender, EventArgs e)
+        {
+            _game.NewGame();
+            Close();
         }
     }
 }

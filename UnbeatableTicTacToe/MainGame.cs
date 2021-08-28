@@ -16,6 +16,10 @@ namespace UnbeatableTicTacToe
         readonly static Color BUTTON_OPEN_COLOR = Color.FromArgb(240,240,240);
         readonly static Color BUTTON_PRESSED_COLOR = Color.FromArgb(191, 191, 191);
 
+        const string COMPUTER_WIN_MESSAGE = "Computer wins";
+        const string PLAYER_WIN_MESSAGE = "You won!";
+        const string DRAW_MESSAGE = "Draw";
+
         Dictionary<string, Button> buttonMapping;
         string[,] _board = new string[3,3];
         string _playerChar = "X";
@@ -32,7 +36,7 @@ namespace UnbeatableTicTacToe
             NewGame();
         }
 
-        void NewGame()
+        public void NewGame()
         {
             _playerCanGo = false;
             ResetBoard();
@@ -104,9 +108,22 @@ namespace UnbeatableTicTacToe
 
         void GameOver(string charWon)
         {
-            Console.Out.WriteLine("Game over, char won is:");
-            Console.Out.WriteLine(charWon);
             _playerCanGo = false;
+            string message;
+            if (charWon == _computerChar)
+            {
+                message = COMPUTER_WIN_MESSAGE;
+            }
+            else if (charWon == _playerChar)
+            {
+                message = PLAYER_WIN_MESSAGE;
+            }
+            else
+            {
+                message = DRAW_MESSAGE;
+            }
+            GameEnd gameOverForm = new GameEnd(message, this);
+            gameOverForm.Show();
         }
 
         bool CheckGameEnd()

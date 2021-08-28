@@ -43,6 +43,7 @@ namespace UnbeatableTicTacToe
             this.btn_quit.TabIndex = 6;
             this.btn_quit.Text = "Quit";
             this.btn_quit.UseVisualStyleBackColor = true;
+            this.btn_quit.Click += new System.EventHandler(this.QuitGame);
             // 
             // btn_again
             // 
@@ -52,6 +53,7 @@ namespace UnbeatableTicTacToe
             this.btn_again.TabIndex = 5;
             this.btn_again.Text = "Play again";
             this.btn_again.UseVisualStyleBackColor = true;
+            this.btn_again.Click += new System.EventHandler(this.NewGame);
             // 
             // lbl_state
             // 
