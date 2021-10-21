@@ -20,6 +20,7 @@ namespace UnbeatableTicTacToe
         const string PLAYER_WIN_MESSAGE = "You won!";
         const string DRAW_MESSAGE = "Draw";
 
+        Ai ai = null;
         Dictionary<string, Button> buttonMapping;
         string[,] _board = new string[3,3];
         string _playerChar = "X";
@@ -35,6 +36,7 @@ namespace UnbeatableTicTacToe
                 { "a2", btn_a2 } , {"b2", btn_b2 }, {"c2", btn_c2 },
                 { "a3", btn_a3 } , {"b3", btn_b3 }, {"c3", btn_c3 }
             };
+            ai = new Ai();
             NewGame();
         }
 
