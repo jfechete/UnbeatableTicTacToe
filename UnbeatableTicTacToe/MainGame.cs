@@ -46,6 +46,7 @@ namespace UnbeatableTicTacToe
             ResetBoard();
             FirstPrompt firstPrompt = new FirstPrompt(FirstTurn);
             firstPrompt.Show();
+            ai.ResetAi();
         }
 
         void ResetBoard()
@@ -66,12 +67,14 @@ namespace UnbeatableTicTacToe
             {
                 _computerChar = "X";
                 _playerChar = "O";
+                ai.SetTurn(true);
                 ComputerTurn();
             }
             else
             {
                 _playerChar = "X";
                 _computerChar = "O";
+                ai.SetTurn(false);
                 _playerCanGo = true;
             }
         }
@@ -83,8 +86,9 @@ namespace UnbeatableTicTacToe
             string pos = ButtonToPos((Button)sender);
             if (GetTile(pos) == string.Empty)
             {
-                SetTile(pos, _playerChar);
                 _playerCanGo = false;
+                ai.PlayerTurn(pos);
+                SetTile(pos, _playerChar);
 
                 if (!CheckGameEnd())
                 {
@@ -93,21 +97,10 @@ namespace UnbeatableTicTacToe
             }
         }
 
-        void ComputerTurn() //will improve later, just here so I can code game logic
+        void ComputerTurn()
         {
-            for (int x = 0; x < _board.GetLength(0); x++)
-            {
-                for (int y = 0; y < _board.GetLength(1); y++)
-                {
-                    if (_board[x,y] == string.Empty)
-                    {
-                        SetTile(new int[] { x, y }, _computerChar);
-                        _playerCanGo = true;
-                        CheckGameEnd();
-                        return;
-                    }
-                }
-            }
+            SetTile(ai.ComputerTurn(), _computerChar);
+            _playerCanGo = true;
             CheckGameEnd();
         }
 
