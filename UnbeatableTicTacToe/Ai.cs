@@ -43,7 +43,18 @@ namespace UnbeatableTicTacToe
 
         public void PlayerTurn(string position)
         {
-            _current_ai = _current_ai.responses[position];
+            Console.Out.WriteLine(position);
+            Console.Out.WriteLine(_current_ai);
+            if (_current_ai.responses[position] == null)
+            {
+                Console.Out.WriteLine("else");
+                _current_ai = _current_ai.responses["else"];
+            }
+            else
+            {
+                Console.Out.WriteLine(position);
+                _current_ai = _current_ai.responses[position];
+            }
         }
 
         public string ComputerTurn()

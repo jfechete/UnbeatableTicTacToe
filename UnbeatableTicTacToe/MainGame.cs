@@ -87,11 +87,11 @@ namespace UnbeatableTicTacToe
             if (GetTile(pos) == string.Empty)
             {
                 _playerCanGo = false;
-                ai.PlayerTurn(pos);
                 SetTile(pos, _playerChar);
 
                 if (!CheckGameEnd())
                 {
+                    ai.PlayerTurn(pos);
                     ComputerTurn();
                 }
             }
