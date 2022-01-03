@@ -115,7 +115,6 @@ namespace UnbeatableTicTacToe
             else if (charWon == _playerChar)
             {
                 message = PLAYER_WIN_MESSAGE;
-                Console.Out.WriteLine(debug_string);
             }
             else
             {
