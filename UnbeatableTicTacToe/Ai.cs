@@ -59,6 +59,8 @@ namespace UnbeatableTicTacToe
 
         public string ComputerTurn()
         {
+            Console.Out.WriteLine("------------------");
+            Console.Out.WriteLine(_current_ai);
             _current_ai = _current_ai.choices[random.Next(_current_ai.choices.Count)];
             return _current_ai.choice;
         }

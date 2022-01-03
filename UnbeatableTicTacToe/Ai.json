@@ -4023,7 +4023,7 @@
                         }
                     },
                     {
-                        "choice": "a1",
+                        "choice": "a3",
                         "responses": {
                             "a2": {
                                 "choices": [
@@ -4506,7 +4506,7 @@
                         }
                     },
                     {
-                        "choice": "a1",
+                        "choice": "c3",
                         "responses": {
                             "b3": {
                                 "choices": [
@@ -4989,7 +4989,7 @@
                         }
                     },
                     {
-                        "choice": "a1",
+                        "choice": "c1",
                         "responses": {
                             "c2": {
                                 "choices": [
@@ -6051,7 +6051,7 @@
                         }
                     },
                     {
-                        "choice": "c1",
+                        "choice": "a1",
                         "responses": {
                             "c1": {
                                 "choices": [
@@ -6630,7 +6630,7 @@
             "c2": {
                 "choices": [
                     {
-                        "choice": "c1",
+                        "choice": "c3",
                         "responses": {
                             "c1": {
                                 "choices": [
@@ -7784,7 +7784,7 @@
             "b3": {
                 "choices": [
                     {
-                        "choice": "c1",
+                        "choice": "a3",
                         "responses": {
                             "c3": {
                                 "choices": [
@@ -8359,7 +8359,7 @@
                         }
                     },
                     {
-                        "choice": "c1",
+                        "choice": "c3",
                         "responses": {
                             "a3": {
                                 "choices": [
@@ -8938,7 +8938,7 @@
             "a2": {
                 "choices": [
                     {
-                        "choice": "c1",
+                        "choice": "a1",
                         "responses": {
                             "a3": {
                                 "choices": [
@@ -9513,7 +9513,7 @@
                         }
                     },
                     {
-                        "choice": "c1",
+                        "choice": "a3",
                         "responses": {
                             "a1": {
                                 "choices": [
